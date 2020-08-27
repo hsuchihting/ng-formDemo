@@ -1,0 +1,28 @@
+<ul class="nav">
+  <li class="btn">
+    <button class="btn">
+      <a routerLink="/home/home-text">Home</a>
+    </button>
+  </li>
+  <li class="btn">
+    <button type="button" class="btn" (click)="featureSvc.toggleList()">
+      System
+    </button>
+    <ul class="systemList" [class.show]="featureSvc.showList()">
+      <li>
+        <button class="btnUser">
+          <a routerLink="/system/system-user" routerLinkActive="active"
+            >User
+          </a>
+        </button>
+      </li>
+      <li>
+        <button class="btnGroup">
+          <a routerLink="/system/system-group" routerLinkActive="active">
+            Group</a
+          >
+        </button>
+      </li>
+    </ul>
+  </li>
+</ul>

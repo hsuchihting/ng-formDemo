@@ -1,0 +1,31 @@
+<div class="login">
+  <div class="container">
+    <h1>LOGIN</h1>
+    <div class="inputGroup">
+      <label
+        >帳號：<span>此欄為必填</span>
+        <input
+          type="email"
+          placeholder="name@email.com"
+          required
+          [(ngModel)]="emailCheck"
+        />
+      </label>
+      <p>email: {{ emailCheck }}</p>
+
+      <br />
+      <label
+        >密碼：<span>此欄為必填</span>
+        <input type="password" class="password" placeholder="請輸入密碼" />
+      </label>
+      <label
+        >電話：<span>此欄為選填</span>
+        <input type="tel" class="tel" placeholder="0912-345678" />
+      </label>
+    </div>
+
+    <div class="btnGroup">
+      <button class="btn btnLogin">登入</button>
+    </div>
+  </div>
+</div>

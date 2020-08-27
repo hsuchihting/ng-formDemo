@@ -1,0 +1,40 @@
+.aside {
+  width: 200px;
+  background-color: #333;
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+  box-shadow: 5px 0 5px #ccc;
+  transition: all 0.5s ease-in-out;
+  border-right: 5px solid orange;
+  &.active {
+    transform: translateX(-240px);
+  }
+  .btnSwitch {
+    position: absolute;
+    top: 0;
+    left: 240px;
+    background-color: orange;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px #ccc;
+    .fa-bars {
+      color: #fff;
+      padding: 10px;
+    }
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #fff;
+    padding: 10px 0;
+    h2 {
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+}
