@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +6,13 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  emailCheck : {};
-  constructor() {}
+  myEmail: string = 'text@email.com';
+  myPassword: string = 'abc12345';
 
+  constructor() {}
+  // tslint:disable-next-line: typedef
+  loginPage() {
+    location.href = 'http://localhost:4200/home/home-text';
+  }
   ngOnInit(): void {}
 }
