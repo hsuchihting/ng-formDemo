@@ -14,5 +14,6 @@ export class LoginComponent implements OnInit {
   loginPage() {
     location.href = 'http://localhost:4200/home/home-text';
   }
+
   ngOnInit(): void {}
 }
