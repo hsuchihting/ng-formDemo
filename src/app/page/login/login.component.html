@@ -1,58 +1,34 @@
 <div class="login">
   <div class="container">
-    <h1>LOGIN</h1>
+    <h1>LOGIN</h1>
 
     <div class="inputGroup">
       <form #form="ngForm">
-        <label
-          >帳號：
-          <span class="errors" *ngIf="iEmail.errors">
-            <p *ngIf="iEmail.errors.required">此欄為必填</p>
-            <p *ngIf="iEmail.errors.pattern">請輸入正確的信箱格式</p>
+
+        <label>帳號：
+          <span class=" errors" *ngIf="userEmail.errors">
+            <p *ngIf="userEmail.errors.required">此欄為必填</p>
+            <p *ngIf="userEmail.errors.pattern">請輸入正確的信箱格式</p>
           </span>
-          <input
-            #iEmail="ngModel"
-            [(ngModel)]="myEmail"
-            type="email"
-            name="email"
-            placeholder="name@email.com"
-            required
-          />
+          <input ngModel type="email" name="email" placeholder="name@email.com" required #userEmail="ngModel" pattern="^[a-zA-Z0-9.!#$%&』*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
         </label>
 
-        <br />
-        <label
-          >密碼：
-          <span class="errors" *ngIf="password.errors">
-            <p *ngIf="password.errors.required">此欄為必填</p>
-            <p *ngIf="password.errors.minlength">密碼長度不足</p>
+        <label>密碼：
+          <span class="errors" *ngIf="userPassword.errors">
+            <p *ngIf="userPassword.errors.required">此欄為必填</p>
+            <p *ngIf="userPassword.errors.minlength">密碼長度不足</p>
           </span>
-          <input
-          #password="ngModel"
-          [(ngModel)]="myPassword"
-            minlength="8"
-            required
-            type="password"
-            name="password"
-            class="password"
-            placeholder="請輸入密碼"
-          />
+          <input ngModel  type="password" name="password" class="password" placeholder="請輸入至少八個密碼"  required #userPassword="ngModel" minlength="8"/>
         </label>
-        <label
-          >電話：<span>此欄為選填</span>
-          <input
-            ngModel
-            type="tel"
-            name="tel"
-            class="tel"
-            placeholder="0912-345678"
-          />
+
+        <label>電話：
+          <input ngModel type="tel" name="tel" class="tel" placeholder="0912-345678" />
         </label>
       </form>
-    </div>
 
-    <div class="btnGroup">
-      <button class="btn btnLogin" (click)="loginPage()" >登入</button>
+      <div class="btnGroup">
+        <button class="btn btnLogin" type="submit" (click)="submit()">登入</button>
+      </div>
     </div>
   </div>
   <!-- <pre>{{ form.value | json }}</pre> -->

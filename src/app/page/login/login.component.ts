@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  myEmail: string = 'text@email.com';
-  myPassword: string = 'abc12345';
-
+  userEmail = true;
+  userPassword = true;
   constructor() {}
-  // tslint:disable-next-line: typedef
-  loginPage() {
-    location.href = 'http://localhost:4200/home/home-text';
+
+  submit() {
+    if (this.userEmail && this.userPassword) {
+      location.href = 'http://localhost:4200/home/home-text';
+    } else {
+      location.href = 'http://localhost:4200/page-not-found';
+    }
   }
 
   ngOnInit(): void {}
