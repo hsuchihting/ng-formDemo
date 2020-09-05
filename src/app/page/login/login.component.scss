@@ -20,24 +20,25 @@
   .inputGroup {
     label {
       font-size: 18px;
-      input {
-        width: 95%;
-        height: 42px;
-        margin: 2% 0 5%;
-      outline-color: #527ac5;
-        padding-left: 12px;
-        font-size: 16px;
-      }
-      .errors {
-        color: orangered;
-        font-size: 12px;
-      }
     }
-  }
-  .btnGroup {
-    display: flex;
-    justify-content: center;
+
+    .errors {
+      color: orangered;
+      font-size: 12px;
+    }
+    input {
+      width: 95%;
+      height: 42px;
+      margin: 2% 0 5%;
+      outline-color: #527ac5;
+      padding-left: 12px;
+      font-size: 16px;
+    }
+
     .btn {
+      display: flex;
+      justify-content: center;
+      margin-left: auto;
       padding: 3% 0;
       border-radius: 6px;
       width: 45%;

@@ -3,33 +3,50 @@
     <h1>LOGIN</h1>
 
     <div class="inputGroup">
-      <form #form="ngForm">
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div>
+          <label>帳號：</label>
+          <p class="errors" *ngIf="f.email.errors">
+            <span *ngIf="f.email.errors.required">此欄為必填</span>
+            <span *ngIf="f.email.errors.email">請輸入正確的信箱格式</span>
+          </p>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="name@email.com"
+            [ngClass]="{ 'errors':f.email.errors }"
+          />
+        </div>
 
-        <label>帳號：
-          <span class=" errors" *ngIf="userEmail.errors">
-            <p *ngIf="userEmail.errors.required">此欄為必填</p>
-            <p *ngIf="userEmail.errors.pattern">請輸入正確的信箱格式</p>
-          </span>
-          <input ngModel type="email" name="email" placeholder="name@email.com" required #userEmail="ngModel" pattern="^[a-zA-Z0-9.!#$%&』*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
-        </label>
+        <div>
+          <label>密碼： </label>
+          <p class="errors" *ngIf="f.password.errors">
+            <span *ngIf="f.password.errors.required">此欄為必填</span>
+            <span *ngIf="f.password.errors.minlength">密碼不得小於 6 字元</span>
+          </p>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="請輸入密碼"
+            [ngClass]="{ 'errors':f.password.errors }"
+          />
+        </div>
 
-        <label>密碼：
-          <span class="errors" *ngIf="userPassword.errors">
-            <p *ngIf="userPassword.errors.required">此欄為必填</p>
-            <p *ngIf="userPassword.errors.minlength">密碼長度不足</p>
-          </span>
-          <input ngModel  type="password" name="password" class="password" placeholder="請輸入至少八個密碼"  required #userPassword="ngModel" minlength="8"/>
-        </label>
-
-        <label>電話：
-          <input ngModel type="tel" name="tel" class="tel" placeholder="0912-345678" />
-        </label>
+        <div>
+          <label
+            >電話：
+            <input
+              type="tel"
+              name="tel"
+              class="tel"
+              placeholder="0912-345678"
+            />
+          </label>
+        </div>
       </form>
 
-      <div class="btnGroup">
-        <button class="btn btnLogin" type="submit" (click)="submit()">登入</button>
-      </div>
+      <button class="btn btnLogin">登入</button>
     </div>
   </div>
-  <!-- <pre>{{ form.value | json }}</pre> -->
+  <pre>{{ loginForm.value | json }}</pre>
 </div>

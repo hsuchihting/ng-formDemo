@@ -1,6 +1,4 @@
-import { logging } from 'protractor';
 import { Injectable } from '@angular/core';
-import { NgLocalization } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +6,6 @@ import { NgLocalization } from '@angular/common';
 export class FeatureService {
   close = false; // nav 是否關閉
   show = false; // 是否出現選單
-
   constructor() {}
 
   // tslint:disable-next-line: typedef
@@ -27,6 +24,4 @@ export class FeatureService {
   toggleList() {
     this.show = !this.show;
   }
-
-
 }
