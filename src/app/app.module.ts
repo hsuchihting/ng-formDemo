@@ -22,6 +22,7 @@ import { PageNotFoundComponent } from './page/page-not-found/page-not-found.comp
 import { HomeTextComponent } from './page/index/home/home-text/home-text.component';
 import { ConfigComponent } from './config/config.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

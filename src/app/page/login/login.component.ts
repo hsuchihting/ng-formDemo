@@ -8,27 +8,20 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   email = true;
   password = true;
   pattern =
     '^[a-zA-Z0-9.!#$%&』*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$';
-    postId: any;
+  postId: any;
+  href: string;
 
   constructor(
     public featureSvc: FeatureService,
     public formBuilder: FormBuilder,
     private http: HttpClient
   ) {}
-
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-    });
-  }
 
   // tslint:disable-next-line: typedef
   get f() {
@@ -37,17 +30,33 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   submit() {
-    this.http.post('https://atc.itts.com.tw/User/Login', { title: 'Angular POST Request Example' }).subscribe({
-    next: data => this.postId = data,
-    error: error => console.error('There was an error!', error)
-})
+    const data = {
+      CompanySeq: '1',
+      Account: 'tim.hsu@itts.com.tw',
+      Password: 'tim0323',
+    };
+    const url = 'https://atc.itts.com.tw/User/Login';
+
+    const option = {
+      observe: 'response' as 'response',
+    };
+    this.http.post<any>(url, data, option).subscribe((res) => {
+      console.log(res);
+      if (data.Account && data.Password) {
+        alert('OK');
+        // location.href = 'http://localhost:4200/home/home-text';
+      } else {
+        alert('帳號密碼錯誤');
+      }
+    });
   }
 
-  //   this.submitted = true;
-  //   if (this.loginForm.invalid) {
-  //     alert('必填欄位未寫');
-  //     return;
-  //   }
-  //   alert('歡迎');
-  // }
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+
+    this.submit();
+  }
 }
